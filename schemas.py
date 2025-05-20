@@ -23,14 +23,17 @@ class LearningModule(BaseModel):
     id: int
     title: str
     description: str
+    objectives: List[str]
     estimatedTime: str
     resources: List[str]
+    prerequisites: List[str]
 
 class LearningPath(BaseModel):
     subject: str
     level: str
+    totalEstimatedTime: str
     modules: List[LearningModule]
-    structure: Dict[str, Any]
+    # structure: Dict[str, Any]
     
     class Config:
         orm_mode = True
