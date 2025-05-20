@@ -40,7 +40,7 @@ class LearningPath(BaseModel):
 
 class ChatMessageBase(BaseModel):
     content: str
-    subject_id: Optional[str] = None      # Add to match model
+    subject_id: Optional[str] = None      
     related_topic_id: Optional[str] = None
 
 class ChatRequest(BaseModel):

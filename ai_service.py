@@ -21,7 +21,7 @@ class AITutorService:
             "friendly": "You are a friendly tutor who encourages learning through positive reinforcement."
         }
         
-        # If no API key is set, we'll use a fallback mode
+        
         self.use_fallback = not self.api_key
         if self.use_fallback:
             print("WARNING: No OpenAI API key found. Using fallback responses.")
@@ -73,9 +73,10 @@ class AITutorService:
         """
         
         response = self._call_ai_api(prompt, max_tokens=1500)
-        
+        print("response: ", response)
         try:
             learning_path = json.loads(response)
+            print("learning_path: ", learning_path)
             # Validate the structure
             if not all(key in learning_path for key in ["subject", "level", "modules"]):
                 raise ValueError("Invalid structure in AI response")
